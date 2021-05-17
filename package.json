@@ -1,0 +1,23 @@
+{
+  "name": "live-tat-cypress-grep",
+  "version": "1.0.0",
+  "description": "Demo project for live about cypress-grep",
+  "scripts": {
+    "test": "cypress run",
+    "test:smoke": "cypress run --env grepTags=@smoke",
+    "test:critial": "cypress run --env grepTags=@critical",
+    "test:allButSmoke": "cypress run --env grepTags=-@smoke",
+    "cypress:open": "cypress open"
+  },
+  "keywords": [
+    "Cypress.io",
+    "cypress-grep",
+    "GitHub Actions"
+  ],
+  "author": "Walmyr Filho <wlsf82@gmail.com> (https://walmyr.dev)",
+  "license": "MIT",
+  "devDependencies": {
+    "cypress": "^7.3.0",
+    "cypress-grep": "^2.3.0"
+  }
+}
