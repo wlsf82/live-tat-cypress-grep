@@ -1,0 +1,23 @@
+name: pr
+on: [pull_request]
+jobs:
+  pr-tests:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout 🛎
+        uses: actions/checkout@v2
+
+      # run tests tagged "@smoke"
+      # https://github.com/bahmutov/cypress-grep
+      - name: Smoke tests 💨
+        uses: cypress-io/github-action@v2
+        with:
+          env: grepTags=@smoke
+
+      # if smoke tests passed, run all the tests, but the smoke
+      - name: All E2E tests but smoke 🧪
+        uses: cypress-io/github-action@v2
+        with:
+          # we have already installed all dependencies above
+          install: false
+          env: grepTags=-@smoke
